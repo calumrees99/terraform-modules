@@ -1,3 +1,4 @@
 Need to do:
 - Add optional parameters to budget moddule.
 - Add other budget types e.g. to either apply to subscription, tenant etc...
+- Should also change this line 15 of module     for_each = var.notification != null ? [var.notification] : [] to just for_each = var.notification
