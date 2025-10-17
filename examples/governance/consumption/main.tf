@@ -1,6 +1,8 @@
 module "budget" {
-  source       = "../../modules/goverance/consumption"
-  timeGrain    = var.timeGrain
-  budgetName   = var.budgetName
-  notification = var.notification
+  for_each     = var.budgets
+  source       = "../../../modules/governance/consumption"
+  budgetName   = each.key
+  budgetAmount = each.value.budgetAmount
+  timeGrain    = each.value.timeGrain
+  notification = each.value.notification
 }
