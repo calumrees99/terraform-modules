@@ -29,3 +29,18 @@ variable "notification" {
   })
   description = "Required - Notfication of budget being reached"
 }
+variable "managementGroupId" {
+  type        = string
+  description = "Optional - Management group Id for where alert is to be applied"
+  default     = null
+}
+variable "subscriptionId" {
+  type        = string
+  description = "Optional - Subscription Id for where alert is to be applied"
+  default     = null
+}
+variable "resourceGroupId" {
+  type        = string
+  description = "Optional - Resource Group Id for where alert is to be applied to"
+  default     = null
+}

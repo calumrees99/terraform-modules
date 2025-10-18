@@ -1,7 +1,10 @@
 variable "budgets" {
   type = map(object({
-    budgetAmount = number
-    timeGrain    = string
+    managementGroupId = optional(string)
+    subscriptionId    = optional(string)
+    resourceGroupId   = optional(string)
+    budgetAmount      = number
+    timeGrain         = string
     notification = object({
       enabled        = bool
       threshold      = number
