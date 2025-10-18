@@ -1,8 +1,8 @@
 budgets = {
   poc-sub-budget-yearly = {
-    subscriptionId = "/subscriptions/<subscriptionId>"
-    budgetAmount   = 100
-    timeGrain      = "Annually"
+    subscription_id = "/subscriptions/<subscriptionId>"
+    budget_amount   = 100
+    time_grain      = "Annually"
     notification = {
       enabled        = true
       threshold      = 90.0

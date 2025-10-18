@@ -1,21 +1,21 @@
-variable "budgetName" {
+variable "budget_name" {
   type        = string
-  description = "Required - The name which should be used for this budget"
+  description = "Required. The display name of the budget. This name will be used to identify the budget within Azure Cost Management."
 }
 
-variable "budgetAmount" {
+variable "budget_amount" {
   type        = number
-  description = "Required - The total amount of cost to track with the budget."
+  description = "Required. The total monetary amount allocated for this budget. Costs tracked against this amount will trigger notifications based on defined thresholds."
 }
 
-variable "timeGrain" {
+variable "time_grain" {
   type        = string
-  description = "Required - The time covered by a budget. Tracking of the amount will be reset based on the time grain."
+  description = "Required. The time interval for budget tracking and reset (e.g., 'Monthly', 'Quarterly', or 'Annually'). Determines how often the budget cycle restarts."
 }
 
 variable "start_date" {
   type        = string
-  description = "Required - The start date for the budget. The start date must be first of the month and should be less than the end date"
+  description = "Required. The start date for the budget period in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ). Must be the first day of a month and occur before the end date."
   default     = "2025-10-01T00:00:00Z"
 }
 
@@ -27,20 +27,30 @@ variable "notification" {
     threshold_type = string
     contact_emails = list(string)
   })
-  description = "Required - Notfication of budget being reached"
+  description = <<EOT
+Required. Configuration for budget notifications.  
+- `enabled`: Whether the notification is active.  
+- `threshold`: The percentage of the budget amount that triggers the alert.  
+- `operator`: The comparison operator used to evaluate the threshold (e.g., 'GreaterThan').  
+- `threshold_type`: The basis for the threshold (e.g., 'Actual' or 'Forecasted').  
+- `contact_emails`: A list of email addresses to receive the notification.
+EOT
 }
-variable "managementGroupId" {
+
+variable "management_group_id" {
   type        = string
-  description = "Optional - Management group Id for where alert is to be applied"
+  description = "Optional. The Management Group ID where this budget and alert should be applied. Used for organization-wide budget tracking."
   default     = null
 }
-variable "subscriptionId" {
+
+variable "subscription_id" {
   type        = string
-  description = "Optional - Subscription Id for where alert is to be applied"
+  description = "Optional. The Subscription ID where the budget and alert should be applied. Used for subscription-level cost tracking."
   default     = null
 }
-variable "resourceGroupId" {
+
+variable "resource_group_id" {
   type        = string
-  description = "Optional - Resource Group Id for where alert is to be applied to"
+  description = "Optional. The Resource Group ID where the budget and alert should be scoped. Used for fine-grained budget management within a subscription."
   default     = null
 }

@@ -3,6 +3,5 @@ terraform {
     azurerm = {
       source = "hashicorp/azurerm"
     }
-
   }
 }

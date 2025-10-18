@@ -1,8 +1,8 @@
 budgets = {
   poc-mg-budget-monthly = {
-    managementGroupId = "/providers/Microsoft.Management/managementGroups/<managedmentGroupId>"
-    budgetAmount      = 10
-    timeGrain         = "Monthly"
+    management_group_id = "/providers/Microsoft.Management/managementGroups/<managedmentGroupId>"
+    budget_amount       = 10
+    time_grain          = "Monthly"
     notification = {
       enabled        = true
       threshold      = 90.0

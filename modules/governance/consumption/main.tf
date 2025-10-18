@@ -1,10 +1,10 @@
 resource "azurerm_consumption_budget_management_group" "management_group" {
-  count               = var.managementGroupId != null ? 1 : 0
-  name                = var.budgetName
-  management_group_id = var.managementGroupId
+  count               = var.management_group_id != null ? 1 : 0
+  name                = var.budget_name
+  management_group_id = var.management_group_id
 
-  amount     = var.budgetAmount
-  time_grain = var.timeGrain
+  amount     = var.budget_amount
+  time_grain = var.time_grain
 
   time_period {
     start_date = var.start_date
@@ -24,12 +24,12 @@ resource "azurerm_consumption_budget_management_group" "management_group" {
   }
 }
 resource "azurerm_consumption_budget_subscription" "subscription" {
-  count           = var.subscriptionId != null ? 1 : 0
-  name            = var.budgetName
-  subscription_id = var.subscriptionId
+  count           = var.subscription_id != null ? 1 : 0
+  name            = var.budget_name
+  subscription_id = var.subscription_id
 
-  amount     = var.budgetAmount
-  time_grain = var.timeGrain
+  amount     = var.budget_amount
+  time_grain = var.time_grain
 
   time_period {
     start_date = var.start_date
@@ -49,12 +49,12 @@ resource "azurerm_consumption_budget_subscription" "subscription" {
   }
 }
 resource "azurerm_consumption_budget_resource_group" "resource_group" {
-  count             = var.resourceGroupId != null ? 1 : 0
-  name              = var.budgetName
-  resource_group_id = var.resourceGroupId
+  count             = var.resource_group_id != null ? 1 : 0
+  name              = var.budget_name
+  resource_group_id = var.resource_group_id
 
-  amount     = var.budgetAmount
-  time_grain = var.timeGrain
+  amount     = var.budget_amount
+  time_grain = var.time_grain
 
   time_period {
     start_date = var.start_date

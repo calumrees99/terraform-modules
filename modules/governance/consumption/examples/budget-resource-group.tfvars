@@ -1,8 +1,8 @@
 budgets = {
   poc-rg-budget-quarterly = {
-    resourceGroupId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-    budgetAmount    = 100
-    timeGrain       = "Monthly"
+    resource_group_id = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
+    budget_amount     = 10
+    time_grain        = "Monthly"
     notification = {
       enabled        = true
       threshold      = 90.0
